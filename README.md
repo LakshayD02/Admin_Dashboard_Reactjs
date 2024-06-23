@@ -23,5 +23,8 @@
 
 - Tailwind CSS: Ensuring responsive design and intuitive UI components.
 
-![Website Look](https://github.com/LakshayD02/MERN_Job_Portal_Website/blob/main/Output-1.png)
-![Website Look](https://github.com/LakshayD02/MERN_Job_Portal_Website/blob/main/Output-5.png)
+# Website Look
+
+
+![Website Look](https://github.com/LakshayD02/Admin_Dashboard_Reactjs/blob/main/1.png)
+![Website Look](https://github.com/LakshayD02/Admin_Dashboard_Reactjs/blob/main/2.png)
