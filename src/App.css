@@ -1,0 +1,320 @@
+@import url('https://cdn.syncfusion.com/ej2/material.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ─── CSS Design Tokens ─────────────────────────────────────────── */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.12);
+  --glass-blur: blur(16px);
+  --card-radius: 16px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-lift: 0 20px 60px -10px rgba(0, 0, 0, 0.18);
+  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.25);
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* ─── Global Base ───────────────────────────────────────────────── */
+* {
+  font-family: 'Inter', 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Sidebar ───────────────────────────────────────────────────── */
+.sidebar {
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.08);
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-bg) !important;
+  border-right: 1px solid var(--glass-border);
+  transition: var(--transition-smooth);
+}
+
+.dark .sidebar {
+  background: rgba(36, 39, 51, 0.92) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Navbar ────────────────────────────────────────────────────── */
+.navbar {
+  z-index: 10000;
+  backdrop-filter: var(--glass-blur);
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  transition: var(--transition-smooth);
+}
+
+.dark .navbar {
+  background: rgba(36, 39, 51, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-item,
+.navbar {
+  z-index: 10000;
+}
+
+/* ─── Nav Buttons ───────────────────────────────────────────────── */
+.navbar button {
+  transition: var(--transition-smooth);
+  transform-style: preserve-3d;
+}
+
+.navbar button:hover {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ─── Glassmorphism Cards ───────────────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-lift);
+}
+
+/* ─── 3D Card Hover Effect ──────────────────────────────────────── */
+.card-3d {
+  transition: var(--transition-smooth);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateX(-2deg) rotateY(2deg) translateY(-6px);
+  box-shadow: var(--shadow-lift), var(--shadow-glow);
+}
+
+/* ─── Stat Cards (Dashboard) ────────────────────────────────────── */
+.stat-card {
+  border-radius: var(--card-radius);
+  transition: var(--transition-smooth);
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  pointer-events: none;
+  border-radius: var(--card-radius);
+}
+
+.stat-card:hover {
+  transform: perspective(800px) rotateX(-3deg) translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* ─── Sidebar NavLinks ──────────────────────────────────────────── */
+.sidebar-link {
+  transition: var(--transition-smooth);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--gradient-primary);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  border-radius: 0 2px 2px 0;
+}
+
+.sidebar-link:hover::before,
+.sidebar-link.active::before {
+  transform: scaleY(1);
+}
+
+.sidebar-link:hover {
+  transform: translateX(4px);
+}
+
+/* ─── Footer ────────────────────────────────────────────────────── */
+.footer-premium {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(99, 102, 241, 0.15);
+  margin-top: 3rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.footer-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.5), transparent);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────── */
+button {
+  transition: var(--transition-smooth);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* ─── Floating Settings Button ──────────────────────────────────── */
+.settings-fab {
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  animation: float 3s ease-in-out infinite;
+}
+
+.settings-fab:hover {
+  transform: scale(1.12) rotate(90deg);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ─── Popup Panels (Cart / Chat / Notification) ─────────────────── */
+.nav-item > div,
+.nav-item > * {
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  border-radius: 16px;
+  animation: slideDown 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)     scale(1);    }
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a78bfa, #818cf8);
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ─── Charts Area ───────────────────────────────────────────────── */
+.chart-container {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.chart-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* ─── Page Entry Animation ──────────────────────────────────────── */
+.page-enter {
+  animation: pageEnter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ─── Gradient Text ─────────────────────────────────────────────── */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glow Badge ────────────────────────────────────────────────── */
+.glow-badge {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  50%       { box-shadow: 0 0 0 6px rgba(99, 102, 241, 0); }
+}
+
+/* ─── Media Queries ─────────────────────────────────────────────── */
+@media screen and (max-width: 800px) {
+  .sidebar {
+    z-index: 10000000;
+  }
+}
+
+/* ─── Syncfusion Overrides ──────────────────────────────────────── */
+.e-dlg-center-center,
+.e-quick-popup-wrapper.e-device {
+  z-index: 1000000 !important;
+}
+
+.e-input-group:not(.e-float-icon-left),
+.e-input-group.e-success:not(.e-float-icon-left),
+.e-input-group.e-warning:not(.e-float-icon-left),
+.e-input-group.e-error:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left) {
+  border: none;
+}
+
+/* ─── Color Picker Preview ──────────────────────────────────────── */
+#preview {
+  background: transparent
+    url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png')
+    no-repeat;
+  display: inline-block;
+  height: 80px;
+  margin: 10px 0;
+  min-width: 300px;
+  max-width: 600px;
+  background-color: #008000;
+  border-radius: 12px;
+}
